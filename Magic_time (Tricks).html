@@ -1,0 +1,369 @@
+<html>
+<head><title>Tricks</title>
+<style type="text/css">
+.tdcontent{
+	position:absolute;
+	margin-left: 25%;
+	margin-right: 20%;
+	margin-top: 20%;
+	z-index: 5;
+	left: -46px;
+	top: -62px;
+	width: 614px;
+	height: 580px;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 20px;
+}
+/*Горизонтальное выпадающее меню*/
+ul.menu {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	background-color: #2b2b2b;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4f4f4f), to(#2b2b2b));
+    background-image: -webkit-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -moz-linear-gradient(top, #4f4f4f, #2b2b2b);
+    background-image: -ms-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -o-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: linear-gradient(#4f4f4f, #2b2b2b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#2b2b2b', GradientType=0); 
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	width: 900px;
+}
+
+ul.menu li {
+	float: left;
+	list-style: none;
+	border-right: 1px solid #4f4f4f;
+	position: relative;
+}
+
+ul.menu li a {
+	color: white;
+	display: block;
+	font-family: Arial;
+	font-size: 13px;
+	padding: 8px 20px 10px;
+	text-decoration: none;
+	border-right: 1px solid #2b2b2b;
+}
+
+ul.menu li a:hover {
+	background-color: #2b2b2b;
+}
+
+ul.menu li:first-child a:hover {
+	border-radius: 4px 0 0 4px;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+}
+/*Выпадающее меню*/
+ul.menu li ul {
+	display: none;
+}
+
+ul.menu li:hover ul {
+	display: block;
+	position: absolute;
+	top: 34px;
+	border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	background-color: #2b2b2b;
+	z-index: 1000;
+}
+
+ul.menu li:hover ul li {
+	float: none;
+	width: 150px;
+	border-right: none;
+}
+
+ul.menu li:hover ul li a {
+	border-top: 1px solid #4f4f4f;
+	border-right: none;
+	padding: 6px 20px 8px;
+}
+
+ul.menu li:hover ul li a:hover {
+	background-color: transparent;
+	color: #c1deff;
+}
+
+ul.menu li:hover ul li:first-child a:hover {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}	
+
+.Tab{
+font-weight:bold;
+padding: 5px;
+border-style:solid;
+border-width:1px;
+cursor: help;
+}
+.TabGroup
+{
+	position:absolute;
+	top:70px;
+	left:8px;
+	width: 818px;
+	height: 36px;
+	background-color: #000000;
+}
+   A {
+    text-decoration: none;
+   } 
+.стиль37 {
+	color: gold;
+	font-family: Constantia;
+	font-weight: bold;
+	font-size: 36px;
+}
+.стиль38 {
+	color: #EFDB69;
+	font-family: Constantia;
+	font-weight: bold;
+	font-size: 24px;
+}
+.стиль39 {font-family: Constantia}
+.стиль40 {color: gold}
+.стиль41 {
+	color: #EFDB69;
+	font-size: 22px;
+	font-weight: bold;
+}
+.стиль42 {font-size: 22px}
+.стиль43 {
+	font-size: 24px;
+	color: gold;
+}
+.стиль44 {
+	font-family: Constantia;
+	color: #EFDB69;
+	font-weight: bold;
+	font-size: 18px;
+}
+.стиль45 {color: #F8E098}
+.стиль46 {
+	color: #EFDB69;
+	font-weight: bold;
+}
+.стиль48 {color: gold; font-size: 20px; }
+.стиль49 {
+	font-size: 36px;
+	color: gold;
+}
+.стиль51 {
+	color: #EFDB69;
+	font-size: 20px;
+	font-weight: bold;
+}
+.стиль52 {
+	font-size: 20px;
+	font-weight: bold;
+	color: gold;
+}
+</style>
+<script language="JavaScript">
+// Максимальное количество снежинок
+var snowmax=50;
+var snowcolor=new Array("#AAAACC","#DDDDFF","#CCCCDD","#F3F3F3","#F0FFFF");
+var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS");
+var snowletter="*";
+//Скорость 
+var sinkspeed=0.5;
+//Максимальный размер снежинок
+var snowmaxsize=30;
+//Минимальный размер снежинок
+var snowminsize=8
+
+var snow=new Array();
+var marginbottom;
+var marginright;
+var timer;
+var i_snow=0;
+var x_mv=new Array();
+var crds=new Array();
+var lftrght=new Array();
+var browserinfos=navigator.userAgent;
+var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/);
+var ns6=document.getElementById&&!document.all;
+var opera=browserinfos.match(/Opera/);
+
+function randommaker(range) {    
+  rand=Math.floor(range*Math.random());
+  return rand;
+}
+
+function initsnow() {
+  if (ie5 || opera) {
+    marginbottom = document.body.clientHeight;
+    marginright = document.body.clientWidth;
+  }
+  else if (ns6) {
+    marginbottom = window.innerHeight;
+    marginright = window.innerWidth;
+  }
+  var snowsizerange=snowmaxsize-snowminsize;
+  for (i=0;i<=snowmax;i++) {
+    crds[i] = 0;      
+    lftrght[i] = Math.random()*15;      
+    x_mv[i] = 0.03 + Math.random()/10;
+    snow[i]=document.getElementById("s"+i);
+    snow[i].style.fontFamily=snowtype[randommaker(snowtype.length)];
+    snow[i].size=randommaker(snowsizerange)+snowminsize;
+    snow[i].style.fontSize=snow[i].size;
+    snow[i].style.color=snowcolor[randommaker(snowcolor.length)];
+    snow[i].sink=sinkspeed*snow[i].size/5;
+    snow[i].posx=randommaker(marginright-snow[i].size);
+    snow[i].posy=randommaker(2*marginbottom-marginbottom-2*snow[i].size);
+    snow[i].style.left=snow[i].posx;
+    snow[i].style.top=snow[i].posy;
+  }
+  movesnow();
+}
+
+function movesnow() {
+  for (i=0;i<=snowmax;i++) {
+    crds[i] += x_mv[i];
+    snow[i].posy+=snow[i].sink;
+    snow[i].style.left=snow[i].posx+lftrght[i]*Math.sin(crds[i]);
+    snow[i].style.top=snow[i].posy;
+    if (snow[i].posy>=marginbottom-2*snow[i].size || parseInt(snow[i].style.left)>(marginright-3*lftrght[i])) {
+      snow[i].posx=randommaker(marginright-snow[i].size);
+      snow[i].posy=0;
+    }
+  }
+  var timer=setTimeout("movesnow()",50);
+}
+
+for (i=0;i<=snowmax;i++) {
+  document.write("<span id='s"+i+"' style='position:absolute;top:-"+snowmaxsize+"'>"+snowletter+"</span>")
+}
+</script>
+<script type='text/javascript'>
+  function showHide(divId)
+  {
+      if ( document.getElementById(divId).style.display == 'block' )
+          document.getElementById(divId).style.display = 'none';
+      else
+          document.getElementById(divId).style.display = 'block';
+  }
+  </script>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"></head>
+<body bgcolor="black" onLoad = "initsnow()">
+
+<p><font size=10 face=Chiller color=white>Magic Time</font></p>
+<ul class="menu">
+    <li><a href="">Главная</a>
+        <ul>
+            <li><a href="Magic time(Main).html">На главную</a></li>
+            <li><a href="http://magictime.listbb.ru/index.php">Форум</a></li>
+        </ul>
+        </li>
+    <li><a href="">История иллюзии</a>
+        <ul>
+            <li><a href="Magic_time(History).html">История возникновения иллюзии</a></li>
+            <li><a href="Magic time(History - Famous Artists).html">Великие иллюзионисты</a></li>
+        </ul>
+  </li>
+    <li><a href="">Магия  в искусстве</a>
+    <ul>
+            <li><a href="Magic_time(Art_Books).html">О волшебниках и их трюках в литературе</a></li>
+            <li><a href="Magic_time(Art_Films).html">Фильмы об иллюзии</a></li>
+            <li><a href="Magic_time(Art_Comics).html">Комиксы о фокусниках </a></li>
+            <li><a href="Magic_time(Art_Museums).html">Музеи магии</a></li>
+        </ul>
+    </li>
+  <li><a href="">Фокусы</a>
+  <ul>      <li><a href="Magic_time (Tricks).html">Полезные ссылки</a></li>
+        </ul>
+  </li>
+  <li><a href="Magic time (Invitation).html">Пригласите волшебство к себе</a></li>
+  <li><a href="Magic time (Reviews).html">Отзывы</a></li>
+    <li><a href="Magic_time(Contacts).html">Контакты</a></li>
+</ul>
+
+
+<img src="annarasumanara-2741929.jpg" align=right>
+<img src="Trics.png" width="555" height="144"/><br>
+<p><a href="#first" class="стиль42" onClick="showHide('first');"><img src="023831183.png" width="65" height="58"/><span class="стиль37">П</span><span class="стиль38">ять <span class="стиль40">с</span>амых <span class="стиль40">и</span>звестных <span class="стиль40">ф</span>окусов</span></a>
+<div class="стиль39" id="first" style="display:none">
+<p><a href="#firstone" class="стиль42" onClick="showHide('firstone');"><img src="023831183.png" width="35" height="28"/><span class="стиль41"><span class="стиль43">Г</span>усь <span class="стиль40">б</span>ез <span class="стиль40">г</span>оловы</span></a>
+<div class="стиль44" id="firstone" style="display:none">
+<br>
+<span class="стиль40">П</span><span class="стиль45">ервое упоминание о фокусах встречается в Весткарском папирусе — древнеегипетском сборнике сказок и преданий времен правления фараона Хеопса (2551-2528 до н. э. или 2589-2566 до н. э.). В одной из глав книги можно найти рассказ о встрече Хеопса с колдуном Джеди, который показал правителю фокус с обезглавливанием гуся. Сначала волшебник отрывал голову животному, а потом возвращал ее на место, после чего птица оживала.</span><br>
+<br>
+<span class="стиль40">В</span><span class="стиль45"> середине XVIII века итальянский фокусник Бальдуччи превратил трюк в настоящее представление с использованием искусственной крови и позволял якобы обезглавленному петуху или гусю пробежать несколько кругов по сцене, чтобы впечатлить зрителей. Несмотря на простоту и незатейливость фокуса, иллюзионисты до сих используют его в своих представлениях. Впрочем, современные маги отказались от натуралистичных подробностей. К шее животного привязывается бутафорская голова птицы, а настоящую маг в этот момент прижимает рукой к туловищу птицы. После этого остается только оторвать фальшивую голову и высвободить настоящую – определяющим фактором в этом несложном фокусе является ловкость рук и быстрота движений.<br>
+<br></span></div></p>
+<p><a href="#firsttwo" class="стиль42" onClick="showHide('firsttwo');"><img src="023831183.png" width="35" height="28"/><span class="стиль46"><span class="стиль43">Л</span>овля <span class="стиль40">п</span>ули</span></a>
+<div class="стиль44" id="firsttwo" style="display:none"><br>
+  <span class="стиль45 стиль45"><span class="стиль48">О</span>дним из самых древних фокусов является так называемая «ловля пули» (bullet catch) – тарелкой, рукой или ртом, что, безусловно, является самым зрелищным вариантом исполнения трюка. Самые ранние упоминания о фокусе относятся к XVII веку, однако только в XIX веке с подачи шотландца Джона Генри Андерсона, который объездил с этим номером всю Британию, «ловля пули» стала чрезвычайно популярна среди иллюзионистов. Уловки, которыми пользуются маги при выполнении фокуса, варьируются в зависимости от ситуации, опыта исполнителя и аудитории. Некоторые используют холостые пули или пиропатроны, которые взрываются внутри оружия и не вылетают на поверхность – магу остается лишь заранее спрятать другую пулю во рту. На заре появления трюка иллюзионисты использовали специальные механизмы, имитирующие звук выстрела, дым и искры, когда на самом деле на спусковой крючок никто даже не нажимал.</span><span class="стиль45"><br>
+  <br>
+<span class="стиль48">В</span> XX веке для пущей правдоподобности фокусники стали работать со зрителями. Совершенства в исполнении трюка с пулей достигли американские иллюзионисты Пенн и Теллер, которые не только просили кого-то из зрительного зала выбрать пули, подписать их своими инициалами и зарядить пистолет, но и одновременно стреляли друг в друга. Вслед за этим фокусники демонстрировали «пойманные» и зажатые между зубами патроны и обращались к тем же самым зрителям с просьбой проверить наличие сделанных ранее подписей.<br>
+<br>
+<span class="стиль48">«Ловля пули»</span> заведомо подразумевает обман, так как физически невозможно остановить вылетающий из пистолета патрон зубами и остаться в живых. Иллюзионисты используют подсадных зрителей или, отвлекая внимание публики, с помощью незаметных манипуляций извлекают пули из заряженного пистолета перед тем, как выстрелить. Однако, даже при точно выверенном сценарии и слаженной работе ассистента и фокусника, этот трюк остается одним из самых опасных: более 10 профессиональных иллюзионистов погибли при исполнении именно этого номера. Так известный фокусник конца XIX века Адам Эпштайн при ловле пули использовал специальный шомпол, на конце которого был закреплен магнит. Таким образом, во время чистки ствола перед выстрелом Эпштайн извлекал пулю. Но именно эта хитрость и сыграла с магом злую шутку: во время одного из выступлений осколок от шомпола застрял внутри пистолета, а при выстреле смертельно ранил Эпштайна.</span><br>
+<br></div>
+</p>
+<p><a href="#firstthree" class="стиль42" onClick="showHide('firstthree');"><img src="023831183.png" width="35" height="28"/><span class="стиль46"><span class="стиль43">И</span>счезновение</span></a>
+<div class="стиль44" id="firstthree" style="display:none">
+<br>
+ <span class="стиль45"><span class="стиль48">О</span>собое место в арсенале любого уважающего себя мага занимают трюки с исчезновением. Со сцены чудесным образом испаряются предметы, ассистентки и сам волшебник. В 1983 году американский иллюзионист Дэвид Копперфильд исполнил фокус, попавший в Книгу рекордов Гиннеса, — волшебник заставил испариться Статую Свободы. Существует несколько версий того, как был выполнен трюк, среди которых – использование поворотной платформы, видеомонтажа и игры света. Также существует мнение, что все случившееся — грандиозная мистификация с подставными зрителями и моделью Статуи Свободы. Однако, сам Копперфильд до сих пор так и не раскрыл секрет ни одного из своих фокусов.<br>
+<br>
+<span class="стиль48">Н</span>астоящим виртуозом сценических исчезновений был фокусник Великий Лафайетт (настоящее имя Зигмунд Нойбергер), выступавший с гастролями по всему миру в конце XIX века. Для выполнения своих номеров маг прибегал к помощи многочисленных ассистентов-двойников, которые были загримированы под Лафайетта, что позволяло последнему находиться одновременно в нескольких точках зала и необъяснимым образом то исчезать, то появляться вновь. Главным же фокусом, исполненным Лафайетом, стала, как это ни парадоксально, его смерть. В 1911 году, на одном из представлений произошел пожар, пламя с загоревшегося занавеса быстро перекинулось на зрительный зал, в результате чего погибли 11 человек – в том числе и сам Лафайетт, пытавшийся спасти из огня дрессированных животных. Тело иллюзиониста обнаружили под завалами и похоронили с почестями и при большом стечении людей. Однако, через несколько дней во время разбора завалов на месте сгоревшего театра было обнаружено еще одно тело. По перстням с драгоценными камнями, которые всегда носил на пальцах фокусник, было установлено, что это и есть настоящий Лафайетт, а похороненный вместо него человек был всего лишь одним из ассистентов-двойников.<br>
+ <br>
+ </span></div>
+</p>
+<p><a href="#firstfour" class="стиль42" onClick="showHide('firstfour');"><img src="023831183.png" width="35" height="28"/><span class="стиль46"><span class="стиль43">Р</span>аспиливание <span class="стиль40">ж</span>енщины</span></a>
+<div class="стиль44" id="firstfour" style="display:none"><br>
+  <span class="стиль45"><br> 
+  <span class="стиль48">С</span>ейчас классическим фокусом с распиливанием человека на две части уже никого не удивить. Практически каждый знает его секрет: у фокусника две ассистентки, одна из которых играет роль «головы», а вторая – «ног».<br>
+  <br>
+<span class="стиль48">П</span>о одной из версий изобретателем этого номера считается некий Торрини, который продемонстрировал его в 1809 году перед Папой Пием VII. По другой, авторство приписывается английскому иллюзионисту и изобретателю Персивалю Тибблсу, выступавшему под псевдонимом Перси Селбит (P. T. «Percy» Selbit) и продемонстрировавшему этот фокус в 1920 году. Также автором трюка называют «отца современной магии» француза Жана Эжена Робер-Удена, именно он впервые описал «методику распиливания» в одной из своих книг.<br>
+<br>
+<span class="стиль48">В</span> начале ХХ века этот номер был невероятно популярен, фокусники воровали друг у друга его секрет, меняли форму ящика, усложняли выполнение фокуса при помощи зеркал, и все для того, чтобы больше удивить публику. Этот фокус иллюзионисты продолжают показывать и сейчас.<br>
+<br>
+<span class="стиль48">О</span>дин из самых шокирующих вариантов фокуса несколько лет назад представил американский иллюзионист Крис Энджел. На видеозаписи, которую и сейчас можно найти в сети, он разрывает женщину голыми руками, не используя при этом пилу, ящики, зеркала или другие приспособления. Эффект усиливается реакцией зрителей: Энджелу помогали две девушки, явно не ожидавшие, что фокус удастся. Позднее секрет был раскрыт. На самом деле, в качестве «разрываемой» женщины выступали два человека: нижнюю часть «играл» акробат, а верхнюю – женщина-инвалид с очень редким заболеванием сакральная агенезия (при этой болезни у человека не развивается нижняя часть тела).</span><br>
+<br>
+</div>
+    </p>
+ <p><a href="#firstfive" class="стиль42" onClick="showHide('firstfive');"><img src="023831183.png" width="35" height="28"/><span class="стиль46"><span class="стиль43">О</span>свобождение</span></a>
+<div class="стиль44" id="firstfive" style="display:none">
+<br>
+<span class="стиль45"> <span class="стиль48">И</span>сторию фокусов, суть которых заключается в «волшебном» освобождении от всевозможных пут и оков, принято вести от выступлений Гарри Гудини. Признанный величайшим мастером побегов, Гудини стал родоначальником целого жанра.<br>
+В начале своей карьеры Гудини практиковал эффектные трюки, в ходе которых за считанные секунды выбирался из наручников, смирительных рубашек или закрытых резервуаров с водой.<br>
+<br>
+<span class="стиль48">В</span> 1903 году он был сброшен с моста в Темзу закованным в кандалы с дополнительным грузом в виде 30-килограммового шара, но через несколько минут всплыл, размахивая наручниками, а во время гастролей по России в 1908 году освободился из камеры смертников в Бутырской тюрьме и Петропавловской крепости.<br>
+<br>
+<span class="стиль48">У</span>сложняя фокусы с освобождением, Гудини превращал их в настоящие шоу. Например, во время выступления в Бостоне, Гудини в смирительной рубашке, привязанный к подъемному крану, за несколько минут освобождает себя на глазах у огромной толпы.<br>
+<br>
+<span class="стиль48">О</span>бъяснить трюки Гарри Гудини пытались его гибкостью и спортивной подготовкой, а также техническими хитростями. Впрочем, ни один из них автор так и не раскрыл, возможно, это была просто… настоящая магия.</span><br>
+<br>
+</div>
+    </p>   
+</div></p>
+<p><a href="#second" class="стиль42" onClick="showHide('second');"><img src="023831183.png" width="65" height="58"/><span class="стиль38"><span class="стиль49">К</span>аталог <span class="стиль40">с</span>айтов<span class="стиль40"> о ф</span>окусах <span class="стиль40">и и</span>х <span class="стиль40">с</span>екретах</span></a>
+<div class="стиль39" id="second" style="display:none">
+<img src="023831183.png" width="35" height="28"/><a href="http://goodmagic.ru/" class="стиль51">goodmagic.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://fokusguru.ru/index/0-299" class="стиль52">fokusguru.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://www.micromagic.ru/content/view/203/132/" class="стиль51">www.micromagic.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://magic-class.ru/" class="стиль52">magic-class.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://what-focus.ru/?s=Search&x=12&y=24" class="стиль51">what-focus.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://magiclesson.ru/" class="стиль52">magiclesson.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://www.smekalka.pp.ru/focus.html" class="стиль51">www.smekalka.pp.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://trick.fome.ru/" class="стиль52">trick.fome.ru</a><br>
+<img src="023831183.png" width="35" height="28"/><a href="http://mirsovetov.ru/a/miscellaneous/entertainment/simple-focus.html" class="стиль51">mirsovetov.ru</a><br>
+</div></p>
+</body>
+</html>

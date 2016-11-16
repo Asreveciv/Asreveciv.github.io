@@ -1,0 +1,257 @@
+<html>
+<head><title>Reviews</title>
+<style type="text/css">
+.tdcontent{
+	position:absolute;
+	margin-left: 25%;
+	margin-right: 20%;
+	margin-top: 20%;
+	z-index: 5;
+	left: -52px;
+	top: -68px;
+	width: 614px;
+	height: 580px;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 20px;
+}
+/*Горизонтальное выпадающее меню*/
+ul.menu {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	background-color: #2b2b2b;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4f4f4f), to(#2b2b2b));
+    background-image: -webkit-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -moz-linear-gradient(top, #4f4f4f, #2b2b2b);
+    background-image: -ms-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -o-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: linear-gradient(#4f4f4f, #2b2b2b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#2b2b2b', GradientType=0); 
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	width: 900px;
+}
+
+ul.menu li {
+	float: left;
+	list-style: none;
+	border-right: 1px solid #4f4f4f;
+	position: relative;
+}
+
+ul.menu li a {
+	color: white;
+	display: block;
+	font-family: Arial;
+	font-size: 13px;
+	padding: 8px 20px 10px;
+	text-decoration: none;
+	border-right: 1px solid #2b2b2b;
+}
+
+ul.menu li a:hover {
+	background-color: #2b2b2b;
+}
+
+ul.menu li:first-child a:hover {
+	border-radius: 4px 0 0 4px;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+}
+/*Выпадающее меню*/
+ul.menu li ul {
+	display: none;
+}
+
+ul.menu li:hover ul {
+	display: block;
+	position: absolute;
+	top: 34px;
+	border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	background-color: #2b2b2b;
+	z-index: 1000;
+}
+
+ul.menu li:hover ul li {
+	float: none;
+	width: 150px;
+	border-right: none;
+}
+
+ul.menu li:hover ul li a {
+	border-top: 1px solid #4f4f4f;
+	border-right: none;
+	padding: 6px 20px 8px;
+}
+
+ul.menu li:hover ul li a:hover {
+	background-color: transparent;
+	color: #c1deff;
+}
+
+ul.menu li:hover ul li:first-child a:hover {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}	
+
+.Tab{
+font-weight:bold;
+padding: 5px;
+border-style:solid;
+border-width:1px;
+cursor: help;
+}
+.TabGroup
+{
+	position:absolute;
+	top:70px;
+	left:8px;
+	width: 818px;
+	height: 36px;
+	background-color: #000000;
+}
+   A {
+    text-decoration: none;
+   } 
+.стиль36 {color: #191919}
+.стиль38 {color: #DBDF88}
+.стиль39 {color: #F0F0F0}
+.стиль40 {color: #EEF25B}
+.стиль41 {color: #F8C756}
+.стиль42 {
+	color: #D4DB5A;
+	font-family: Constantia;
+	font-weight: bold;
+	font-size: 24px;
+}
+.стиль43 {color: #FFD700}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script language="JavaScript">
+// Максимальное количество снежинок
+var snowmax=50;
+var snowcolor=new Array("#DBDF88","#D9DF59","#EEF25B","#F8C756","#F0FFFF");
+var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS");
+var snowletter="*";
+//Скорость 
+var sinkspeed=0.5;
+//Максимальный размер снежинок
+var snowmaxsize=30;
+//Минимальный размер снежинок
+var snowminsize=8
+
+var snow=new Array();
+var marginbottom;
+var marginright;
+var timer;
+var i_snow=0;
+var x_mv=new Array();
+var crds=new Array();
+var lftrght=new Array();
+var browserinfos=navigator.userAgent;
+var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/);
+var ns6=document.getElementById&&!document.all;
+var opera=browserinfos.match(/Opera/);
+
+function randommaker(range) {    
+  rand=Math.floor(range*Math.random());
+  return rand;
+}
+
+function initsnow() {
+  if (ie5 || opera) {
+    marginbottom = document.body.clientHeight;
+    marginright = document.body.clientWidth;
+  }
+  else if (ns6) {
+    marginbottom = window.innerHeight;
+    marginright = window.innerWidth;
+  }
+  var snowsizerange=snowmaxsize-snowminsize;
+  for (i=0;i<=snowmax;i++) {
+    crds[i] = 0;      
+    lftrght[i] = Math.random()*15;      
+    x_mv[i] = 0.03 + Math.random()/10;
+    snow[i]=document.getElementById("s"+i);
+    snow[i].style.fontFamily=snowtype[randommaker(snowtype.length)];
+    snow[i].size=randommaker(snowsizerange)+snowminsize;
+    snow[i].style.fontSize=snow[i].size;
+    snow[i].style.color=snowcolor[randommaker(snowcolor.length)];
+    snow[i].sink=sinkspeed*snow[i].size/5;
+    snow[i].posx=randommaker(marginright-snow[i].size);
+    snow[i].posy=randommaker(2*marginbottom-marginbottom-2*snow[i].size);
+    snow[i].style.left=snow[i].posx;
+    snow[i].style.top=snow[i].posy;
+  }
+  movesnow();
+}
+
+function movesnow() {
+  for (i=0;i<=snowmax;i++) {
+    crds[i] += x_mv[i];
+    snow[i].posy+=snow[i].sink;
+    snow[i].style.left=snow[i].posx+lftrght[i]*Math.sin(crds[i]);
+    snow[i].style.top=snow[i].posy;
+    if (snow[i].posy>=marginbottom-2*snow[i].size || parseInt(snow[i].style.left)>(marginright-3*lftrght[i])) {
+      snow[i].posx=randommaker(marginright-snow[i].size);
+      snow[i].posy=0;
+    }
+  }
+  var timer=setTimeout("movesnow()",50);
+}
+
+for (i=0;i<=snowmax;i++) {
+  document.write("<span id='s"+i+"' style='position:absolute;top:-"+snowmaxsize+"'>"+snowletter+"</span>")
+}
+</script>
+</head>
+
+<body bgcolor="#191919" onLoad = "initsnow()">
+<span class="стиль36"></span>
+<p>
+<font size=10 face=Chiller color=gold>Magic Time</font></p>
+<ul class="menu">
+    <li><a href="">Главная</a>
+        <ul>
+            <li><a href="Magic time(Main).html">На главную</a></li>
+            <li><a href="http://magictime.listbb.ru/index.php">Форум</a></li>
+        </ul>
+  </li>
+    <li><a href="">История иллюзии</a>
+        <ul>
+            <li><a href="Magic_time(History).html">История возникновения иллюзии</a></li>
+            <li><a href="Magic time(History - Famous Artists).html">Великие иллюзионисты</a></li>
+        </ul>
+  </li>
+    <li><a href="">Магия  в искусстве</a>
+    <ul>
+            <li><a href="Magic_time(Art_Books).html">О волшебни<span class="стиль39"></span>ках и их трюках в литературе</a></li>
+            <li><a href="Magic_time(Art_Films).html">Фильмы об иллюзии</a></li>
+            <li><a href="Magic_time(Art_Comics).html">Комиксы о фокусниках </a></li>
+            <li><a href="Magic_time(Art_Museums).html">Музеи магии</a></li>
+      </ul>
+    </li>
+  <li><a href="">Фокусы</a>
+  <ul>      <li><a href="Magic_time (Tricks).html">Полезные ссылки</a></li>
+    </ul>
+  </li>
+  <li><a href="Magic time (Invitation).html">Пригласите в<span class="стиль40"></span>олшебство<span class="стиль41"></span> к себе</a></li>
+  <li><a href="Magic time (Reviews).html">Отзывы</a></li>
+    <li><a href="Magic_time(Contacts).html">Кон<span class="стиль38"></span>такты</a></li>
+</ul>
+<p><img src="1305369694_annarasumanara_ch19_05888.jpg" align=right></p>
+<p><img src="reviews.png"width="555" height="144"/></p>
+<p class="стиль42"><img src="U4ZGh9r97fA.png" width="53" height="45"/><span class="стиль43">О</span>ставляйте свои отзывы на <span class="стиль43">ф</span>оруме!</p>
+</body>
+</html>

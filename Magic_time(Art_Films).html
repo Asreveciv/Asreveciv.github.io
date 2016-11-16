@@ -1,0 +1,403 @@
+<html>
+<head><title>Films_about_magic</title>
+<style type="text/css">
+.tdcontent{
+	position:absolute;
+	margin-left: 25%;
+	margin-right: 20%;
+	margin-top: 20%;
+	z-index: 5;
+	left: -46px;
+	top: -62px;
+	width: 614px;
+	height: 580px;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 20px;
+}
+/*Горизонтальное выпадающее меню*/
+ul.menu {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	background-color: #2b2b2b;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4f4f4f), to(#2b2b2b));
+    background-image: -webkit-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -moz-linear-gradient(top, #4f4f4f, #2b2b2b);
+    background-image: -ms-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -o-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: linear-gradient(#4f4f4f, #2b2b2b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#2b2b2b', GradientType=0); 
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	width: 900px;
+}
+
+ul.menu li {
+	float: left;
+	list-style: none;
+	border-right: 1px solid #4f4f4f;
+	position: relative;
+}
+
+ul.menu li a {
+	color: white;
+	display: block;
+	font-family: Arial;
+	font-size: 13px;
+	padding: 8px 20px 10px;
+	text-decoration: none;
+	border-right: 1px solid #2b2b2b;
+}
+
+ul.menu li a:hover {
+	background-color: #2b2b2b;
+}
+
+ul.menu li:first-child a:hover {
+	border-radius: 4px 0 0 4px;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+}
+/*Выпадающее меню*/
+ul.menu li ul {
+	display: none;
+}
+
+ul.menu li:hover ul {
+	display: block;
+	position: absolute;
+	top: 34px;
+	border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	background-color: #2b2b2b;
+	z-index: 1000;
+}
+
+ul.menu li:hover ul li {
+	float: none;
+	width: 150px;
+	border-right: none;
+}
+
+ul.menu li:hover ul li a {
+	border-top: 1px solid #4f4f4f;
+	border-right: none;
+	padding: 6px 20px 8px;
+}
+
+ul.menu li:hover ul li a:hover {
+	background-color: transparent;
+	color: #c1deff;
+}
+
+ul.menu li:hover ul li:first-child a:hover {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}	
+
+.Tab{
+font-weight:bold;
+padding: 5px;
+border-style:solid;
+border-width:1px;
+cursor: help;
+}
+.TabGroup
+{
+	position:absolute;
+	top:70px;
+	left:8px;
+	width: 818px;
+	height: 36px;
+	background-color: #000000;
+}
+   A {
+    text-decoration: none;
+   } 
+.leftimg {
+    float:left; /* Выравнивание по левому краю */
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+   }
+   .rightimg  {
+    float: right; /* Выравнивание по правому краю  */ 
+    margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+   }
+.стиль42 {
+	font-weight: bold;
+	font-family: Constantia;
+	color: #2DBCEC;
+	font-size: 24px;
+}
+.стиль45 {
+	font-size: 36px;
+	color: #4388AD;
+}
+.стиль48 {
+	color: #2DBCEC;
+	font-family: Constantia;
+	font-weight: bold;
+}
+.стиль50 {color: #4388AD}
+.стиль51 {
+	font-family: Constantia;
+	font-weight: bold;
+}
+.стиль53 {
+	color: #4388AD;
+	font-size: 24px;
+}
+.стиль56 {
+	color: #86E6F0;
+	font-size: 18;
+}
+.стиль60 {color: #4388AD; font-size: 22px; }
+.стиль63 {
+	color: #86E6F0;
+	font-size: 12px;
+}
+.стиль64 {font-size: 20px}
+.стиль65 {color: #4388AD; font-size: 20px; }
+.стиль66 {color: #2DBCEC; font-size: 20px; }
+.стиль67 {color: #1DABC9; font-size: 20px; }
+</style>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css">
+<script type="text/javascript" src="fancybox/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="fancybox/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.2.1.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$("a.first").fancybox();
+$("a.two").fancybox();
+$("a.video").fancybox({"frameWidth":520,"frameHeight":400});
+$("a.content").fancybox({"frameWidth":600,"frameHeight":300});
+});
+</script> 
+<script language = "JavaScript">
+var bigsize = "400"; //Размер большой картинки
+var smallsize = "150"; //Размер маленькой картинки
+function changeSizeImage(im) {
+  if(im.height == bigsize) im.height = smallsize;
+  else im.height = bigsize;
+}
+</script>
+<script type='text/javascript'>
+  function showHide(divId)
+  {
+      if ( document.getElementById(divId).style.display == 'block' )
+          document.getElementById(divId).style.display = 'none';
+      else
+          document.getElementById(divId).style.display = 'block';
+  }
+  </script>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<style type="text/css">
+<!--
+.стиль69 {font-size: 22px}
+.стиль70 {font-size: 18px}
+.стиль71 {font-size: 18}
+.стиль72 {color: #1DABC9}
+-->
+</style>
+</head>
+
+<body bgcolor="black">
+
+<p><font size=10 face=Chiller color=#70F7FF> Magic Time</font></p>
+<ul class="menu">
+    <li><a href="">Главная</a>
+        <ul>
+            <li><a href="Magic time(Main).html">На главную</a></li>
+            <li><a href="http://magictime.listbb.ru/index.php">Форум</a></li>
+        </ul>
+        </li>
+    <li><a href="">История иллюзии</a>
+        <ul>
+            <li><a href="Magic_time(History).html">История возникновения иллюзии</a></li>
+            <li><a href="Magic time(History - Famous Artists).html">Великие иллюзионисты</a></li>
+        </ul>
+  </li>
+    <li><a href="">Магия  в искусстве</a>
+    <ul>
+            <li><a href="Magic_time(Art_Books).html">О волшебниках и их трюках в литературе</a></li>
+            <li><a href="Magic_time(Art_Films).html">Фильмы об иллюзии</a></li>
+            <li><a href="Magic_time(Art_Comics).html">Комиксы о фокусниках </a></li>
+            <li><a href="Magic_time(Art_Museums).html">Музеи магии</a></li>
+        </ul>
+    </li>
+  <li><a href="">Фокусы</a>
+  <ul>      <li><a href="Magic_time (Tricks).html">Полезные ссылки</a></li>
+        </ul>
+  </li>
+  <li><a href="Magic time (Invitation).html">Пригласите волшебство к себе</a></li>
+  <li><a href="Magic time (Reviews).html">Отзывы</a></li>
+    <li><a href="Magic_time(Contacts).html">Контакты</a></li>
+</ul>
+
+<p><img src="annarasumanara-28105578.jpg" class="rightimg">
+  <p>  
+  <p>
+  <br>
+  <img src="depositphotos_17824825-Old-parchment-with-a-feather(films).png" width="555" height="144"/>
+  
+  <p><a href="#first" class="стиль42" onClick="showHide('first');"><img src="50e04c139615c8.png" width="44" height="47"/><span class="стиль45">И</span>ллюзия <span class="стиль45">О</span>бмана</a>
+  <div id="first" style="display:none">
+  <p> <br>
+  <img src="images/nowyouseeme_3.jpg" />
+  <p> <br>
+  <p align="left" class="стиль48">
+ <span class="стиль53">«Иллюзия обмана» </span><span class="стиль70">(англ. Now You See Me; дословный перевод — «Сейчас вы меня видите» (начальная фраза в фокусе с исчезновением) — детективный триллер о фокусниках режиссёра Луи Летерье. Премьера в США состоялась 31 мая 2013 года, в России — 12 июня 2013 года.</span><br>
+ <br>
+ <p class="стиль51"><span class="стиль60">В ролях:</span><br>
+    <span class="стиль65 стиль71">Джесси Айзенберг — </span><span class="стиль66 стиль71">Джей Дэниел Атлас</span><span class="стиль71"><br>
+    <span class="стиль50">Марк Руффало — </span></span><span class="стиль66 стиль71">Дилан Родс</span><span class="стиль71"><br>
+    <span class="стиль50">Вуди Харрельсон — </span></span><span class="стиль66 стиль71">Мерритт Маккинни</span><span class="стиль71"><br>
+    <span class="стиль50">Мелани Лоран — </span></span><span class="стиль66 стиль71">Альма Дрей</span><span class="стиль71"><br>
+    <span class="стиль50">Айла Фишер — </span></span><span class="стиль66 стиль71">Хенли Ривз</span><span class="стиль71"><br>
+    <span class="стиль50">Дэвид Франко — </span></span><span class="стиль66 стиль71">Джек Уайлдер</span><span class="стиль71"><br>
+    <span class="стиль50">Морган Фримен — </span></span><span class="стиль66 стиль71">Таддеуш Брэдли</span><span class="стиль71"><br>
+    <span class="стиль50">Майкл Кейн — </span></span><span class="стиль66 стиль71">Артур Тресслер</span><span class="стиль71"><br>
+    <span class="стиль50">Майкл Келли —</span></span> <span class="стиль66 стиль71">агент Фуллер</span><span class="стиль71"><br>
+    <span class="стиль50">Common — </span></span><span class="стиль66 стиль71">Эванс</span><span class="стиль71"><br>
+    <span class="стиль50">Элиас Котеас —</span></span> <span class="стиль66 стиль71">Лайонел Шрайк</span><br>
+    <br>
+    <span class="стиль60">О чём:</span><br> 
+    <span class="стиль56">Невероятная четвёрка талантливых иллюзионистов под предводительством харизматичного Атласа дают несколько потрясающих, волшебных, высокотехнологичных шоу. Сперва прямо на глазах у изумленных зрителей фокусники грабят парижский банк, находясь при этом в Лас-Вегасе, затем разоблачают финансового афериста, направив его миллионы на банковские счета зрителей. Власти ошарашены их тщательно спланированными операциями, однако агент ФБР Дилан Хоббс намерен заставить иллюзионистов расплатиться за свои преступления и остановить их. Но ему приходится действовать в команде с Альмой, следователем из Интерпола, которая сразу вызывает у него подозрения. Все это — в фильме «Иллюзия обмана», смеси удивительных иллюзий и головокружительных трюков, а также непредсказуемая концовка, которую вы точно не ожидаете увидеть. Ведь в конце концов, как говорится:</span><span class="стиль67 стиль71"> "Чем внимательнее вы смотрите, тем меньше вы видите"!</span><br>
+    <br>
+    <span class="стиль50 стиль69">Постеры:</span><br>
+    <div align="left">
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_2.jpg"><img src="images/nowyouseeme_2(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_4.jpg"><img src="images/nowyouseeme_4(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_5.jpg"><img src="images/nowyouseeme_5(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_6.jpg"><img src="images/nowyouseeme_6(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_7.jpg"><img src="images/nowyouseeme_7(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_8.jpg"><img src="images/nowyouseeme_8(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_9.jpg"><img src="images/nowyouseeme_9(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_10.jpg"><img src="images/nowyouseeme_10(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/nowyouseeme_11.jpg"><img src="images/nowyouseeme_11(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/tumblr_mnj9vtDnL01qe2w1uo1_500.gif"><img src="images/tumblr_mnj9vtDnL01qe2w1uo1_500(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/tumblr_mnw5saLAII1qe2w1uo1_500.jpg"><img src="images/tumblr_mnw5saLAII1qe2w1uo1_500(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/tumblr_mnw5saLAII1qe2w1uo2_500.png"><img src="images/tumblr_mnw5saLAII1qe2w1uo2_500(1).png" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/Now-You-See-Me-Poster-11.jpg"><img src="images/Now-You-See-Me-Poster-11(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/now_you_see_me_by_faretis-d6l32xz.jpg"><img src="images/now_you_see_me_by_faretis-d6l32xz(1).jpg" /></a>
+
+</div><br>
+
+<span class="стиль50 стиль51 стиль69">Кадры из фильма:</span>
+<div align="left">
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/Now-You-See-Me-2004672.jpg"><img src="images/Now-You-See-Me-2004672(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/Now-You-See-Me-2177681.jpg"><img src="images/Now-You-See-Me-2177681(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзия обмана" href="images/now-you-see-me-still01.jpg"><img src="images/now-you-see-me-still01(1).jpg" /></a>
+
+</div>
+    </p>
+</div>
+<p><a href="#second" class="стиль42" onClick="showHide('second');"><img src="50e04c139615c8.png" width="44" height="47"/><span class="стиль45">П</span>рестиж</a></p>
+  <div id="second" style="display:none">
+    <img src="images/d360cdd0c14fc443a59c39800e2f0e7f.mp4.jpg"/>
+    <p> <br>
+  <p align="left" class="стиль48">
+  <span class="стиль53">«Престиж»</span><span class="стиль64"><span class="стиль70"> (англ. The Prestige, 2006) — поставленная Кристофером Ноланом экранизация одноимённой фантастической драмы Кристофера Приста, написанной в 1995 году.</span><br>
+  </span>
+  <br>
+  <p class="стиль51"><span class="стиль60">В ролях:</span><br>
+<span class="стиль65 стиль71">Хью Джекман -</span><span class="стиль66 стиль71"> лорд Роберт Колдлоу/Роберт Энджер (Великий Дантон); Джеральд Рут</span><span class="стиль71"><br>
+<span class="стиль50">Кристиан Бэйл -</span></span><span class="стиль66 стиль71"> Альфред Борден (Профессор); Бернард Фелон</span><span class="стиль71"><br>
+<span class="стиль50">Майкл Кейн -</span></span><span class="стиль66 стиль71"> Джон Каттер</span><span class="стиль71"><br>
+<span class="стиль50">Скарлетт Йоханссон -</span></span> <span class="стиль66 стиль71">Оливия Уэнском</span><span class="стиль71"><br>
+<span class="стиль50">Ребекка Холл -</span></span> <span class="стиль66 стиль71">Сара Борден</span><span class="стиль71"><br>
+<span class="стиль50">Энди Сёркис -</span></span> <span class="стиль66 стиль71">мистер Элли</span><span class="стиль71"><br>
+<span class="стиль50">Пайпер Перабо -</span></span><span class="стиль66 стиль71"> Джулия Маккаллох</span><span class="стиль71"><br>
+<span class="стиль50">Дэвид Боуи -</span></span> <span class="стиль66 стиль71">Никола Тесла</span><br>
+<br>
+     <span class="стиль60">О чём:</span><br> 
+    <span class="стиль63 стиль70">В Лондоне рубежа XIX-XX веков развязалась самая настоящая война между двумя фокусниками, которых некогда связывала дружба. Они участвовали в представлениях известного иллюзиониста и сами мечтали о славе. Один из них, Роберт Энджиер, умел отлично подавать номер и собирать овации публики, второй, Альфред Борден, обладал способностью придумывать поразительные трюки. Их вражда началась со смерти жены Энджиера, и с той поры оба они не жалели сил, чтобы разгадать и сорвать трюки друг друга.<br>
+    Борден обзавелся женой и ребенком, Энджиер нашел ассистентку и начал давать представления. Борден придумал новый трюк, подобного которому еще не видели, – Энджиер украл его, отшлифовал и стал собирать с ним полные залы. В каждом трюке есть три части, и последняя из них – так называемый «престиж» – самая главная.<span class="стиль72"> Престиж – это возвращение исчезнувшего объекта, будь то голубь, мячик или человек.</span> В престиже кроется секрет фокуса, и Энджиер с Борденом пойдут на все, чтобы престиж врага провалился.</span><br>
+    <br>
+      <span class="стиль50 стиль69">Постеры:</span><br> 
+    <div align="left">
+
+<a class="two" rel="group" title="Престиж" href="images/1375634896.jpg"><img src="images/1375634896(1).jpg" /></a>
+
+<a class="two" rel="group" title="Престиж" href="images/minmovie05.jpg"><img src="images/minmovie05(1).jpg" /></a>
+
+<a class="two" rel="group" title="Престиж" href="images/prestige_ver3.jpg"><img src="images/prestige_ver3(1).jpg" /></a>
+
+<a class="two" rel="group" title="Престиж" href="images/the-prestige-[1280x1024]-[8542943].jpg"><img src="images/the-prestige-[1280x1024]-[8542943](1).jpg" /></a>
+</div><br>
+<br>
+    <p class="стиль51"><span class="стиль60">Кадры из фильма:</span> <br>
+    <div align="left">
+
+<a class="two" rel="group" title="Престиж" href="images/The-Prestige-kart1.jpg"><img src="images/The-Prestige-kart1(1).jpg" /></a>
+
+<a class="two" rel="group" title="Престиж" href="images/Robert-Angier-the-prestige-24885712-2560-1707.jpg"><img src="images/Robert-Angier-the-prestige-24885712-2560-1707(1).jpg" /></a>
+
+<a class="two" rel="group" title="Престиж" href="images/prestige_24.jpg"><img src="images/prestige_24(1).jpg" /></a>
+
+<a class="two" rel="group" title="Престиж" href="images/prestige_2.jpg"><img src="images/prestige_2(1).jpg" /></a>
+
+<a class="two" rel="group" title="Престиж" href="images/1282036761_prestige_4.jpg"><img src="images/1282036761_prestige_4(1).jpg" /></a>
+</div>
+    </p>
+</div>
+<a href="#third" class="стиль42" onClick="showHide('third');"><img src="50e04c139615c8.png" width="44" height="47"/><span class="стиль45">И</span>ллюзионист</a>
+<div id="third" style="display:none">
+<img src="images/4c6d2f27ea553.jpg" />
+<p align="left" class="стиль48">
+ <span class="стиль53">«Иллюзионист»</span><span class="стиль70"> (англ. The Illusionist) — фильм режиссёра Нила Бергера, сюжет которого основан на новелле Стивена Миллхаузера. Премьера фильма состоялась в январе 2006 года на кинофестивале «Сандэнс». В России картина вышла в прокат 19 октября 2006 года с рекламным слоганом «Все иллюзорно… кроме любви», который в оригинале звучит как «Nothing is what it seems» («Всё иначе, чем кажется»).</span><br>
+  <br>
+  <p class="стиль51"><span class="стиль60">В ролях:</span><br>
+ <span class="стиль65 стиль70">Эдвард Нортон - </span><span class="стиль66 стиль70">Эдуард Абрамовиц (герр Айзенхайм)</span><span class="стиль70"><span class="стиль64"><br>
+<span class="стиль50">Пол Джиаматти - </span></span><span class="стиль66 стиль70">Инспектор полиции Вальтер Уль</span><span class="стиль70"><br>
+<span class="стиль50">Джессика Бил - </span></span><span class="стиль66 стиль70">Герцогиня София фон Тешин</span><span class="стиль70"><br>
+<span class="стиль50">Руфус Сьюэлл - </span></span><span class="стиль66 стиль70">Принц Леопольд</span><span class="стиль70"><br>
+<span class="стиль50">Элеонор Томлинсон - </span></span><span class="стиль66 стиль70">молодая Софи</span><span class="стиль70"><br>
+<span class="стиль50">Аарон Джонсон - </span></span><span class="стиль66 стиль70">молодой Эдуард</span><br>
+<br>
+     <span class="стиль60">О чём:</span><br> 
+    <span class="стиль63 стиль70">Вена начала XX века взбудоражена представлениями иллюзиониста Айзенхайма, чье искусство столь совершенно, что многие задаются вопросом, не владеет ли фокусник настоящей магией. Айзенхайм, настоящая фамилия которого Амбамовиц, родился в семье краснодеревщика и с самого детства упражнялся в искусстве создания иллюзий. Он показывал свои первые фокусы юной герцогине Софи фон Тешин, с которой его связывала сначала дружба, а позднее – и любовь. <br>
+Разумеется, их отношения были совершенно недопустимы для семьи герцогини, поэтому молодые люди были разлучены на долгие годы. Теперь Софи – невеста кронпринца Леопольда, и вместе они оказываются на представлении иллюзиониста. Теперь Айзенхайм намерен вернуть свою возлюбленную, и после их встречи начинается череда таинственных событий, объяснить которые не может никто, кроме него самого. Иллюзионист намерен подготовить свой главный фокус, чтобы добиться желаемого и навсегда скрыться от недоброжелателей.</span><br>
+<br>
+<p class="стиль51"><span class="стиль60">Кадры из фильма:</span> <br>
+<div align="left">
+
+<a class="two" rel="group" title="Иллюзионист" href="images/The-Illusionist-kart1.jpg"><img src="images/The-Illusionist-kart1(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзионист" href="images/98729706.jpg"><img src="images/98729706(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзионист" href="images/753.jpg"><img src="images/753(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзионист" href="images/0_b14f9_d3d5a2ee_orig.png"><img src="images/0_b14f9_d3d5a2ee_orig(1).jpg" /></a>
+
+<a class="two" rel="group" title="Иллюзионист" href="images/1350835599_torrentfilm.ru_the-illusionist_3.jpg"><img src="images/1350835599_torrentfilm.ru_the-illusionist_3(1).jpg" /></a></div>
+</p>
+ </div>
+</p>
+</html>

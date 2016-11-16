@@ -1,0 +1,272 @@
+<html>
+<head><title>Museums_and_magic</title>
+<style type="text/css">
+.tdcontent{
+	position:absolute;
+	margin-left: 25%;
+	margin-right: 20%;
+	margin-top: 20%;
+	z-index: 5;
+	left: -46px;
+	top: -62px;
+	width: 614px;
+	height: 580px;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 20px;
+}
+/*Горизонтальное выпадающее меню*/
+ul.menu {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	background-color: #2b2b2b;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4f4f4f), to(#2b2b2b));
+    background-image: -webkit-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -moz-linear-gradient(top, #4f4f4f, #2b2b2b);
+    background-image: -ms-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -o-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: linear-gradient(#4f4f4f, #2b2b2b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#2b2b2b', GradientType=0); 
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	width: 900px;
+}
+
+ul.menu li {
+	float: left;
+	list-style: none;
+	border-right: 1px solid #4f4f4f;
+	position: relative;
+}
+
+ul.menu li a {
+	color: white;
+	display: block;
+	font-family: Arial;
+	font-size: 13px;
+	padding: 8px 20px 10px;
+	text-decoration: none;
+	border-right: 1px solid #2b2b2b;
+}
+
+ul.menu li a:hover {
+	background-color: #2b2b2b;
+}
+
+ul.menu li:first-child a:hover {
+	border-radius: 4px 0 0 4px;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+}
+/*Выпадающее меню*/
+ul.menu li ul {
+	display: none;
+}
+
+ul.menu li:hover ul {
+	display: block;
+	position: absolute;
+	top: 34px;
+	border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	background-color: #2b2b2b;
+	z-index: 1000;
+}
+
+ul.menu li:hover ul li {
+	float: none;
+	width: 150px;
+	border-right: none;
+}
+
+ul.menu li:hover ul li a {
+	border-top: 1px solid #4f4f4f;
+	border-right: none;
+	padding: 6px 20px 8px;
+}
+
+ul.menu li:hover ul li a:hover {
+	background-color: transparent;
+	color: #c1deff;
+}
+
+ul.menu li:hover ul li:first-child a:hover {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}	
+
+.Tab{
+font-weight:bold;
+padding: 5px;
+border-style:solid;
+border-width:1px;
+cursor: help;
+}
+.TabGroup
+{
+	position:absolute;
+	top:70px;
+	left:8px;
+	width: 818px;
+	height: 36px;
+	background-color: #000000;
+}
+   A {
+    text-decoration: none;
+   } 
+.стиль36 {
+	color: #2DBCEC;
+	font-size: 24px;
+	font-family: Constantia;
+	font-weight: bold;
+}
+.стиль37 {
+	color: #4388AD;
+	font-size: 36px;
+	font-family: Constantia;
+	font-weight: bold;
+}
+.стиль38 {color: #4388AD}
+.стиль42 {font-size: 36px}
+.стиль46 {
+	color: #4388AD;
+	font-family: Constantia;
+	font-weight: bold;
+}
+.стиль47 {color: #4388AD; font-size: 36px; }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script type="text/javascript" src="fancybox/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="fancybox/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.2.1.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$("a.first").fancybox();
+$("a.two").fancybox();
+$("a.video").fancybox({"frameWidth":520,"frameHeight":400});
+$("a.content").fancybox({"frameWidth":600,"frameHeight":300});
+});
+</script> 
+<script language = "JavaScript">
+var bigsize = "400"; //Размер большой картинки
+var smallsize = "150"; //Размер маленькой картинки
+function changeSizeImage(im) {
+  if(im.height == bigsize) im.height = smallsize;
+  else im.height = bigsize;
+}
+</script>
+<script type='text/javascript'>
+  function showHide(divId)
+  {
+      if ( document.getElementById(divId).style.display == 'block' )
+          document.getElementById(divId).style.display = 'none';
+      else
+          document.getElementById(divId).style.display = 'block';
+  }
+  </script>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<style type="text/css">
+<!--
+.стиль49 {
+	font-family: Constantia;
+	font-size: 20px;
+	color: #2DBCEC;
+	font-weight: bold;
+}
+.стиль50 {font-size: 22px}
+.стиль51 {
+	font-size: 20px;
+	color: #4388AD;
+	font-family: Constantia;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body bgcolor="black">
+
+<p><font size=10 face=Chiller color=#70F7FF> Magic Time</font></p>
+<ul class="menu">
+    <li><a href="">Главная</a>
+        <ul>
+            <li><a href="Magic time(Main).html">На главную</a></li>
+            <li><a href="http://magictime.listbb.ru/index.php">Форум</a></li>
+        </ul>
+        </li>
+    <li><a href="">История иллюзии</a>
+        <ul>
+            <li><a href="Magic_time(History).html">История возникновения иллюзии</a></li>
+            <li><a href="Magic time(History - Famous Artists).html">Великие иллюзионисты</a></li>
+        </ul>
+  </li>
+    <li><a href="">Магия  в искусстве</a>
+    <ul>
+            <li><a href="Magic_time(Art_Books).html">О волшебниках и их трюках в литературе</a></li>
+            <li><a href="Magic_time(Art_Films).html">Фильмы об иллюзии</a></li>
+            <li><a href="Magic_time(Art_Comics).html">Комиксы о фокусниках </a></li>
+            <li><a href="Magic_time(Art_Museums).html">Музеи магии</a></li>
+        </ul>
+    </li>
+  <li><a href="">Фокусы</a>
+  <ul>      <li><a href="Magic_time (Tricks).html">Полезные ссылки</a></li>
+        </ul>
+  </li>
+  <li><a href="Magic time (Invitation).html">Пригласите волшебство к себе</a></li>
+  <li><a href="Magic time (Reviews).html">Отзывы</a></li>
+    <li><a href="Magic_time(Contacts).html">Контакты</a></li>
+</ul>
+
+<br>
+<br>
+<img src="annarasumanara-28105578.jpg" align=right>
+<img src="museum.png" width="555" height="144"/>
+ <p><a href="#first" class="стиль42" onClick="showHide('first');"><img src="50e04c139615c8.png" width="44" height="47"/><span class="стиль37">М</span><span class="стиль36">узей <span class="стиль47">м</span>агии <span class="стиль38">в</span> <span class="стиль47">П</span>ариже</span></a>
+ <div id="first" style="display:none"><br>
+ <img src="musee-magie1.jpg"/><br>
+ <br>
+   <span class="стиль49"> <span class="стиль38">Э</span>то старинное здание со сводчатыми каменными стенами обязательно зачарует детей и взрослых, мечтающих быть похожими на Гарри Поттера или зачитывающимися сказочными историями о великом волшебнике Мерлине. Речь идёт об одном из самых необычных музеев мира – <span class="стиль38">музее Магии</span> (Musee da la Magie), находящемся в Париже, в подвале дома номер 11 на старинной улице Сент-Поль.<br>
+   <br>
+   <img src="musee-magie6.jpg"/><br>
+   <br>
+   <span class="стиль38"> Почему именно в Париже?</span><br>
+   <br>
+   <span class="стиль38">В</span>о-первых, в 17 веке именно Франция стала излюбленной страной для выступлений странствующих чародеев и фокусников, особенно они облюбовали Новый мост, не менее популярным осталось мастерство иллюзионистов в наше время. <br>
+   <br>
+   <span class="стиль38">В</span>о-вторых, в основе музея частная коллекция известного французского иллюзиониста и коллекционера мистических атрибутов </span><span class="стиль51">Жоржа Пруста.</span><span class="стиль49"><br>
+    <span class="стиль38">П</span>олучивший педагогическое образование и начавший работать преподавателем литературы, Жорж на досуге осваивал сначала жонглирование, а потом в результате случайного знакомства с группой иллюзионистов увлёкся искусством магии. Первые предметы для работы он отыскивал в антикварных лавках, идея коллекционировать атрибутику фокусника пришла к нему гораздо позже. С 60-х годов его коллекция постоянно выставлялась, но нынешний <span class="стиль38">Музей магии</span>, уже ставший неотъемлемой достопримечательностью французской столицы, был открыт в 1993 году.<br>
+    <br>
+     <span class="стиль38">К</span>стати, самого Жоржа, получившего титул <span class="стиль38">«Иллюзионист года»</span> и приз <span class="стиль38">Академии Магических искусств</span>, по уверениям туристов, можно встретить иногда в музее, он увлечённо рассказывает посетителям о своей коллекции. Уже у самого входа начинаются чудеса: у двери на волшебной перьевой ручке сидит дьяволёнок и манит вас заглянуть внутрь, с помощью ручки выводя приглашение войти. А за волшебной дверью, пройдя несколько ступеней вниз, вы попадаете на настоящее магическое представление, продолжающееся минут 20 и демонстрирующее 15 волшебных иллюзий. Задание зрителя – не просто очаровано лицезреть происходящее, но и понять суть фокуса, правда, сделать это будет сложно. Также будет интересно прослушать начинающуюся сразу после представления лекцию об истории магии и самого музея, а ведёт лекцию настоящий волшебник, перемежая теорию фокусами.<br>
+      <span class="стиль38">З</span>десь можно увидеть инструменты и реквизиты известных фокусников Роббера-Удена, считающегося отцом магии и написавшего несколько теоретических трудов, Де Вера, Бюатье де Кольта, старинные афиши и гравюры, зазывающие когда-то посмотреть удивительные представления. Есть здесь волшебный стул, сев на который, ассистентка волшебника сразу исчезала, шкатулки с секретом, волшебные палочки, особо интересен раритетный реквизит для фокуса с распиливанием человека, принадлежавший впервые исполнившему этот трюк Говарду Топстону.<br> 
+      <br>
+      <span class="стиль38">Н</span>екоторые экспозиции демонстрируют предметы, которые использовались гадалками и медиумами для сеансов спиритизма – вызова духов. Один из отделов волшебного музея собрал знаменитые орудия оптических иллюзий – множество зеркал разного размера. Некоторые экспонаты интерактивны, так что можно испробовать силу волшебных зеркал на себе. В этом же подвале находится ещё один музей – Музей занимательных автоматов. Здесь были собрано более сотни забавных фигурок, приводимых в движение нажатием кнопки.  Да и из сувенирной лавки невозможно выйти без покупки, здесь можно неторопливо рассмотреть товар и выбрать книги по магии, карты таро, волшебные палочки, коробки – магазин «Magasin de Magie» расположен по соседству на улице Тампль (Rue du Temple).</span><br>
+      <br>
+      <img src="musee-magie2.jpg"/>
+   <p> <br>  </p>
+</div>
+<p><a href="#second" class="стиль42" onClick="showHide('second');"><img src="50e04c139615c8.png" width="44" height="47"/><span class="стиль37">Д</span><span class="стиль36">ом <span class="стиль38">м</span>ага </span><span class="стиль37">Р</span><span class="стиль36">обер-</span><span class="стиль46">У</span><span class="стиль36">дена</span></a></p>
+  <div id="second" style="display:none">
+  <br>
+  <img src="e83043eb47306ed9664a262634da4578.jpg"/><br>
+  <br>
+  <span class="стиль49"> <span class="стиль38 стиль50">Дом мага Робер-Удена </span>(фр. La Maison de la Magie Robert-Houdin) – дом-музей, посвященный знаменитому французскому иллюзионисту Жану Эжену Робер-Удену (1805-1871), отцу современной магии. Дом мага находится у входа в Замок Блуа. Перед зданием музея стоит статуя Робер-Удена.<br>
+<br>
+<span class="стиль38">Г</span>лавная достопримечательность музея – страж дома, шестиглавый дракон, головы которого каждые полчаса появляются из открывающихся окон здания – впечатляющее шоу.<br>
+<br>
+<span class="стиль38">Ю</span>ным посетителям предлагается представление по мотивам сказки Алиса в стране чудес – на фоне сказочного представления иллюзионист показывает фокусы. Экспозиция первого уровня музея: ротонда с историей магии, картинами, музыкой; греческий храм, прославляющий фокусников средних веков; калейдоскоп жизни и шахматная доска оптических иллюзий; экспозиция <span class="стиль38">"The firm of Robert-Houdin fantastic"</span>. На втором уровне представлена мастерская часовщика, магическое устройство для научных исследований (оптика и электричество) и волшебные часы. На третьем уровне – «галлюциноскоп», который погружает посетителей в мир 20 000 лье под водой Жюля Верна.<br>
+<br>
+<span class="стиль38">В </span>доме-музее проводятся публичные мероприятия и выставки, связанные с магией и иллюзионизмом. На протяжении всего года в музее проходят спектакли, проводятся занятия по знакомству детей и их родителей с простейшими фокусами, а также работает центр по подготовке фокусников, являющийся филиалом Международного центра иллюзионизма и магии.</span><br>
+<br>
+<img src="ba74adad7aa38c60ff7b96f1747b1a51.jpg"/>
+  </p></div>
+</html>

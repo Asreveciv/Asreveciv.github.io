@@ -1,0 +1,371 @@
+<html>
+<head><title>Invitation</title>
+<style type="text/css">
+.tdcontent{
+	position:absolute;
+	margin-left: 25%;
+	margin-right: 20%;
+	margin-top: 20%;
+	z-index: 5;
+	left: -46px;
+	top: -62px;
+	width: 614px;
+	height: 580px;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 20px;
+}
+/*Горизонтальное выпадающее меню*/
+ul.menu {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	background-color: #2b2b2b;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4f4f4f), to(#2b2b2b));
+    background-image: -webkit-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -moz-linear-gradient(top, #4f4f4f, #2b2b2b);
+    background-image: -ms-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: -o-linear-gradient(#4f4f4f, #2b2b2b);
+    background-image: linear-gradient(#4f4f4f, #2b2b2b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#2b2b2b', GradientType=0); 
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	width: 900px;
+}
+
+ul.menu li {
+	float: left;
+	list-style: none;
+	border-right: 1px solid #4f4f4f;
+	position: relative;
+}
+
+ul.menu li a {
+	color: white;
+	display: block;
+	font-family: Arial;
+	font-size: 13px;
+	padding: 8px 20px 10px;
+	text-decoration: none;
+	border-right: 1px solid #2b2b2b;
+}
+
+ul.menu li a:hover {
+	background-color: #2b2b2b;
+}
+
+ul.menu li:first-child a:hover {
+	border-radius: 4px 0 0 4px;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+}
+/*Выпадающее меню*/
+ul.menu li ul {
+	display: none;
+}
+
+ul.menu li:hover ul {
+	display: block;
+	position: absolute;
+	top: 34px;
+	border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	background-color: #2b2b2b;
+	z-index: 1000;
+}
+
+ul.menu li:hover ul li {
+	float: none;
+	width: 150px;
+	border-right: none;
+}
+
+ul.menu li:hover ul li a {
+	border-top: 1px solid #4f4f4f;
+	border-right: none;
+	padding: 6px 20px 8px;
+}
+
+ul.menu li:hover ul li a:hover {
+	background-color: transparent;
+	color: #c1deff;
+}
+
+ul.menu li:hover ul li:first-child a:hover {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}	
+
+.Tab{
+font-weight:bold;
+padding: 5px;
+border-style:solid;
+border-width:1px;
+cursor: help;
+}
+.TabGroup
+{
+	position:absolute;
+	top:70px;
+	left:8px;
+	width: 818px;
+	height: 36px;
+	background-color: #000000;
+}
+   A {
+    text-decoration: none;
+   } 
+</style>
+<script language="JavaScript">
+// Максимальное количество снежинок
+var snowmax=50;
+var snowcolor=new Array("#AAAACC","#DDDDFF","#CCCCDD","#F3F3F3","#F0FFFF");
+var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS");
+var snowletter="*";
+//Скорость 
+var sinkspeed=0.6;
+//Максимальный размер снежинок
+var snowmaxsize=30;
+//Минимальный размер снежинок
+var snowminsize=8
+
+var snow=new Array();
+var marginbottom;
+var marginright;
+var timer;
+var i_snow=0;
+var x_mv=new Array();
+var crds=new Array();
+var lftrght=new Array();
+var browserinfos=navigator.userAgent;
+var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/);
+var ns6=document.getElementById&&!document.all;
+var opera=browserinfos.match(/Opera/);
+
+function randommaker(range) {    
+  rand=Math.floor(range*Math.random());
+  return rand;
+}
+
+function initsnow() {
+  if (ie5 || opera) {
+    marginbottom = document.body.clientHeight;
+    marginright = document.body.clientWidth;
+  }
+  else if (ns6) {
+    marginbottom = window.innerHeight;
+    marginright = window.innerWidth;
+  }
+  var snowsizerange=snowmaxsize-snowminsize;
+  for (i=0;i<=snowmax;i++) {
+    crds[i] = 0;      
+    lftrght[i] = Math.random()*15;      
+    x_mv[i] = 0.03 + Math.random()/10;
+    snow[i]=document.getElementById("s"+i);
+    snow[i].style.fontFamily=snowtype[randommaker(snowtype.length)];
+    snow[i].size=randommaker(snowsizerange)+snowminsize;
+    snow[i].style.fontSize=snow[i].size;
+    snow[i].style.color=snowcolor[randommaker(snowcolor.length)];
+    snow[i].sink=sinkspeed*snow[i].size/5;
+    snow[i].posx=randommaker(marginright-snow[i].size);
+    snow[i].posy=randommaker(2*marginbottom-marginbottom-2*snow[i].size);
+    snow[i].style.left=snow[i].posx;
+    snow[i].style.top=snow[i].posy;
+  }
+  movesnow();
+}
+
+function movesnow() {
+  for (i=0;i<=snowmax;i++) {
+    crds[i] += x_mv[i];
+    snow[i].posy+=snow[i].sink;
+    snow[i].style.left=snow[i].posx+lftrght[i]*Math.sin(crds[i]);
+    snow[i].style.top=snow[i].posy;
+    if (snow[i].posy>=marginbottom-2*snow[i].size || parseInt(snow[i].style.left)>(marginright-3*lftrght[i])) {
+      snow[i].posx=randommaker(marginright-snow[i].size);
+      snow[i].posy=0;
+    }
+  }
+  var timer=setTimeout("movesnow()",50);
+}
+
+for (i=0;i<=snowmax;i++) {
+  document.write("<span id='s"+i+"' style='position:absolute;top:-"+snowmaxsize+"'>"+snowletter+"</span>")
+}
+</script>
+<script type='text/javascript'>
+  function showHide(divId)
+  {
+      if ( document.getElementById(divId).style.display == 'block' )
+          document.getElementById(divId).style.display = 'none';
+      else
+          document.getElementById(divId).style.display = 'block';
+  }
+  </script>
+  <style>
+#video12 {
+  position: relative;
+  margin-bottom: 110px;
+  padding-bottom: 75%;
+}
+#video12 iframe {
+	position: absolute;
+	width: 1238px;
+	height: 1369px;
+	left: 840px;
+	top: 189px;
+}
+#video12 div {
+  position: absolute;
+  bottom: -110px;
+  width: 100%;
+  height: 100px;
+  padding: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  text-align: center;
+}
+#video12 img {
+  height: calc(100% - (5px + 1px)*2 - 10px);
+  margin: 0 5px 0 0;
+  padding: 5px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  opacity: .7;
+}
+#video12 img:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+#video12 img:focus {
+  opacity: .2;
+}
+.стиль38 {
+	color: #FC854B;
+	font-family: Constantia;
+	font-weight: bold;
+	font-size: 24px;
+}
+  .стиль44 {
+	color: #FC854B
+}
+  .стиль45 {
+	font-size: 24px;
+	color: #C1080A;
+	font-weight: bold;
+}
+  .стиль49 {color: #E00809}
+  .стиль50 {font-size: 22px}
+  .стиль51 {color: #FFFFFF}
+  .стиль53 {
+	color: #E00809;
+	font-family: Constantia;
+	font-size: 20px;
+	font-weight: bold;
+}
+  .стиль54 {
+	color: #FFFFFF;
+	font-size: 22px;
+	font-family: Constantia;
+	font-weight: bold;
+}
+  .стиль55 {font-size: 24px; color: #E00809; }
+  .стиль56 {
+	font-family: Constantia;
+	color: #FFFFFF;
+}
+  .стиль59 {font-size: 24px; color: #E00809; font-weight: bold; }
+  </style>
+<script>
+var IMG = document.querySelectorAll('#video12 img'),
+    IFRAME = document.querySelector('#video12 iframe');
+for (var i = 0; i < IMG.length; i++) {
+  IMG[i].onclick = function() {
+    var idIMG = this.src.replace(/http...img.youtube.com.vi.([\s\S]*?).1.jpg/g, '$1');
+    IFRAME.src = 'http://www.youtube.com/embed/' + idIMG + '?rel=0&autoplay=1';
+    if(this.dataset.end) IFRAME.src = IFRAME.src.replace(/([\s\S]*)/g, '$1&end=' + this.dataset.end);
+    if(this.dataset.start) IFRAME.src = IFRAME.src.replace(/([\s\S]*)/g, '$1&start=' + this.dataset.start);
+    this.style.backgroundColor='#555';
+  }
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"></head>
+
+<body bgcolor="black" onLoad = "initsnow()">
+
+<p><font size=10 face=Chiller color=#B40001> Magic Time</font></p>
+<ul class="menu">
+    <li><a href="">Главная</a>
+        <ul>
+            <li><a href="Magic time(Main).html">На главную</a></li>
+            <li><a href="http://magictime.listbb.ru/index.php">Форум</a></li>
+        </ul>
+        </li>
+    <li><a href="">История иллюзии</a>
+        <ul>
+            <li><a href="Magic_time(History).html">История возникновения иллюзии</a></li>
+            <li><a href="Magic time(History - Famous Artists).html">Великие иллюзионисты</a></li>
+        </ul>
+  </li>
+    <li><a href="">Магия  в искусстве</a>
+    <ul>
+            <li><a href="Magic_time(Art_Books).html">О волшебниках и их трюках в литературе</a></li>
+            <li><a href="Magic_time(Art_Films).html">Фильмы об иллюзии</a></li>
+            <li><a href="Magic_time(Art_Comics).html">Комиксы о фокусниках </a></li>
+            <li><a href="Magic_time(Art_Museums).html">Музеи магии</a></li>
+        </ul>
+    </li>
+  <li><a href="">Фокусы</a>
+  <ul>      <li><a href="Magic_time (Tricks).html">Полезные ссылки</a></li>
+        </ul>
+  </li>
+  <li><a href="Magic time (Invitation).html">Пригласите волшебство к себе</a></li>
+  <li><a href="Magic time (Reviews).html">Отзывы</a></li>
+    <li><a href="Magic_time(Contacts).html">Контакты</a></li>
+</ul>
+
+
+<img src="annarasumanara-3436341.jpg" align=right>
+<img src="Invitation.png" width="555" height="144"/><br>
+ <p><a href="#first" class="стиль42" onClick="showHide('first');"><img src="post-906854-1259081522.png" width="45" height="40"/><span class="стиль38"><span class="стиль49">О</span><span class="стиль50"><span class="стиль51">ригинальный номер</span><span class="стиль49"> "Трансформация костюмов"</span> <span class="стиль51">Ольги Петряевой</span></span></span></a>
+<div id="first" style="display:none">
+ <span class="стиль51"><br>
+ </span><span class="стиль45 стиль49">Сайт:</span><strong><a href="http://petryaevy.ru/" class="стиль51 стиль44 стиль50"> petryaevy.ru</a></strong></span><br>
+ <br>
+ <span class="стиль53"> Видео:</span><br>
+ <iframe width="480" height="360" src="http://www.youtube.com/embed/8sfornzSvHE?rel=0" frameborder="0" allowfullscreen></iframe>
+  <iframe width="480" height="360" src="http://www.youtube.com/embed/42NZWSKnvi4?rel=0" frameborder="0" allowfullscreen></iframe>
+      </p>
+</div>
+<p><a href="#second" class="стиль42" onClick="showHide('second');"><img src="post-906854-1259081522.png" width="45" height="40"/><span class="стиль54"><span class="стиль49">V</span>ittorio Falcone De Ference</span></a><div id="second" style="display:none">
+<br>
+<span class="стиль59">Сайт:</span><strong><a href="http://vittoriofalcone.com/Fokusnik_illuzionist_Vittorio_Falcone.html" class="стиль51 стиль44 стиль50"> vittoriofalcone.com</a></strong></span><br>
+<br>
+ <span class="стиль53"> Видео:</span><br>
+<iframe width="480" height="360" src="http://www.youtube.com/embed/824uuXVmGl4?feature=player_embedded" frameborder="0" allowfullscreen></iframe></p></div>
+<p><a href="#third" class="стиль42" onClick="showHide('third');"><img src="post-906854-1259081522.png" width="45" height="40"/><span class="стиль54"><span class="стиль49">C</span>емья фокусников <span class="стиль49">Валерий и Елена Груздевы</span></span></a>
+<div id="third" style="display:none">
+<br>
+<span class="стиль55">Сайт:</span><a href="http://fokusniki-gruzdevi.ru/fokusnik-na-prazdnik.html" class="стиль50 стиль44 стиль56"><strong> fokusniki-gruzdevi.ru</strong></a></span><br>
+<br>
+<img src="focusnici.PNG"/>
+</p></div>
+<p><a href="#four" class="стиль42" onClick="showHide('four');"><img src="post-906854-1259081522.png" width="45" height="40"/><span class="стиль54"><span class="стиль49">Ф</span>окусники на праздник<span class="стиль49"> Golden Artis</span></span></a>
+<div id="four" style="display:none">
+<br>
+<span class="стиль55">Сайт:</span><a href="http://www.goldenartist.ru/" class="стиль50 стиль44 стиль56"><strong> www.goldenartist.ru/</strong></a></span><br>
+<br>
+<img src="220_250.jpg"/>
+</p></div>
+
+</body>
+</html>
